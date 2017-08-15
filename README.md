@@ -6,4 +6,4 @@
 
 # GraphQL Sequelize
 
-Basic template for initializing a GraphQL service with Express, Apollo Server, and Sequelize (PG) - with a little touch of magic.
+Basic template for initializing a GraphQL service with Express, Apollo Server, and Sequelize (Postgres) - with a little touch of magic.

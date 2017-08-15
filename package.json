@@ -19,17 +19,20 @@
     "nodemon": "^1.11.0"
   },
   "scripts": {
-    "start": "BABEL_DISABLE_CACHE=src/schema.graphql nodemon src/index.js --exec babel-node -e js,graphql,graphqls",
+    "start": "BABEL_DISABLE_CACHE=src/schema.graphql DEBUG=sequelize*,api:* nodemon src/index.js --exec babel-node -e js,graphql,graphqls",
     "build": "babel src -d dist",
     "serve": "node dist/index.js"
   },
   "dependencies": {
     "body-parser": "^1.17.2",
+    "chalk": "^2.1.0",
     "cors": "^2.8.4",
+    "debug": "^3.0.0",
     "express": "^4.15.4",
     "graphql": "^0.10.5",
     "graphql-server-express": "^1.1.0",
     "graphql-tools": "^1.2.0",
+    "lodash": "^4.17.4",
     "pg": "^7.1.2",
     "pg-hstore": "^2.3.2",
     "sequelize": "^4.4.10"

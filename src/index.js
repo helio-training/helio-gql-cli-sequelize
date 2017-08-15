@@ -3,12 +3,17 @@ import bodyParser from 'body-parser'
 
 import { graphiqlExpress, graphqlExpress } from 'graphql-server-express'
 import { makeExecutableSchema } from 'graphql-tools'
+import chalk from 'chalk'
 
 import db from './db'
 import schemaDef from './schema.graphqls'
+import resolvers from './resolvers'
+import logger from './logger'
 
 const app = express()
+const port = 3000
 const schema = makeExecutableSchema({
+  resolvers,
   typeDefs: [schemaDef]
 })
 
@@ -23,10 +28,11 @@ app.use('/graphiql', graphiqlExpress({
 db
   .authenticate()
   .then(() => {
-    app.listen(3000, () => {
-      console.log(`Server running on port 3000`)
+    app.listen(port, () => {
+      logger.info(chalk.cyan(`Server running on port ${port}`))
+      logger.info(chalk.cyan(`Access graphiql: http://localhost:${port}/graphiql`))
     })
   })
   .catch((err) => {
-    console.error(err)
+    logger.error(chalk.red(`Unable to connect to SQL server.`))
   })
