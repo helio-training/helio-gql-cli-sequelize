@@ -2,7 +2,7 @@
   "development": {
     "username": "dev",
     "password": "devdb",
-    "database": "graphql-db",
+    "database": "dev",
     "host": "db",
     "dialect": "postgres",
     "logging": false
