@@ -1,0 +1,5 @@
+# Full Service Schema
+
+type Query {
+  version: String!
+}
