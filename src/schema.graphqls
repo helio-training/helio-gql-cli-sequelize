@@ -3,3 +3,40 @@
 type Query {
   version: String!
 }
+
+type Mutation {
+  createUser (
+    user: UserInput
+  ): User
+}
+
+type User {
+  id: Int!
+  email: String!
+  password: String!
+
+  profile: Profile
+}
+
+input UserInput {
+  email: String!
+  password: String!
+
+  profile: ProfileInput
+}
+
+type Profile {
+  id: Int!
+  name: String!
+  address: String!
+  phoneNumber: String!
+  
+  user: User
+}
+
+input ProfileInput {
+  name: String!
+  address: String!
+  phoneNumber: String!
+}
+
